@@ -8,4 +8,10 @@ IPADDRESS=$(nslookup $ADDRESS | grep -m2 "Address:" | tail -n1 | cut -d : -f 2 |
 
 
 shodan host $IPADDRESS
+shodan domain $ADDRESS
+shodan honeyscore $IPADDRESS
+
+echo "IP ADDRESS HISTORY"
+
+shodan host --history $IPADDRESS | less
 
